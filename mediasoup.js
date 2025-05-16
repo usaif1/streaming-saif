@@ -30,7 +30,7 @@ async function getOrCreateRoom(roomId) {
       router,
       transports: new Map(),
       producers: new Map(),
-      consumers: new Map()
+      consumers: new Map(),
     });
   }
   return rooms.get(roomId);
@@ -45,14 +45,18 @@ function getRouterRtpCapabilities(roomId) {
 async function createWebRtcTransport(roomId) {
   const room = await getOrCreateRoom(roomId);
   const transport = await room.router.createWebRtcTransport({
-    listenIps: [{ ip: "127.0.0.1", announcedIp: null }],
+    listenIps: [
+      { ip: "127.0.0.1", announcedIp: "streaming-saif.fly.dev" },
+    ],
     enableUdp: true,
     enableTcp: true,
     preferUdp: true,
   });
 
   room.transports.set(transport.id, transport);
-  console.log(`[Mediasoup] Created transport ${transport.id} for room ${roomId}`);
+  console.log(
+    `[Mediasoup] Created transport ${transport.id} for room ${roomId}`
+  );
 
   return {
     transport,
