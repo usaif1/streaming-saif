@@ -46,7 +46,7 @@ async function createWebRtcTransport(roomId) {
   const room = await getOrCreateRoom(roomId);
   const transport = await room.router.createWebRtcTransport({
     listenIps: [
-      { ip: "127.0.0.1", announcedIp: "streaming-saif.fly.dev" },
+      { ip: "127.0.0.1", announcedIp: "66.241.125.215" },
     ],
     enableUdp: true,
     enableTcp: true,
