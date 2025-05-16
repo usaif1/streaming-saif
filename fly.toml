@@ -23,3 +23,7 @@ app = "streaming-saif"
     timeout = "2s"
     grace_period = "5s"
     restart_limit = 0
+
+[[udp]]
+  internal_port = 3000
+  ports = [1935, 8000]
