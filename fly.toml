@@ -1,13 +1,10 @@
 app = "streaming-saif"
 
-kill_signal = "SIGINT"
-kill_timeout = 5
+[build]
+  dockerfile = "Dockerfile"
 
 [env]
-PORT = "3000"
-
-[build]
-  builder = "heroku/buildpacks:20"
+  PORT = "3000"
 
 [[services]]
   internal_port = 3000
